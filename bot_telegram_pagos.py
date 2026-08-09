@@ -23,39 +23,54 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         respuesta = """
 🎯 **¡Perfecto! Aquí están tus opciones de pago:**
 
-**Opción 1️⃣ - STRIPE (Tarjeta de crédito/débito)**
-1️⃣ Haz clic aquí: 🔗 {}
-2️⃣ Sigue los pasos en pantalla
-3️⃣ ¡Listo! Recibirás confirmación por email
+respuesta = """
+🎯 **¡Bienvenido a Exclusives Soportes!**
+
+Ofrecemos dos servicios premium:
+
+📺 **SERVICIO TV**
+Acceso a TV en vivo con múltiples canales
+
+🎬 **SERVICIO STREAMING**
+Plex, Emby, Jellyfin y más
 
 ---
 
-**Opción 2️⃣ - PAYPAL**
-1️⃣ Accede a PayPal.com
-2️⃣ Haz clic en "Enviar dinero"
-3️⃣ Usa este email: 💳 {}
-4️⃣ Ingresa el monto que deseas pagar
-5️⃣ ¡Completado! Te confirmaremos de inmediato
+**PRECIOS - TV (por pantalla)**
+
+3️⃣ **3 MESES**
+  • 1 pantalla: €30
+  • 2 pantallas: €45
+
+6️⃣ **6 MESES**
+  • 1 pantalla: €45
+  • 2 pantallas: €55
+
+1️⃣2️⃣ **1 AÑO**
+  • 1 pantalla: €70
+  • 2 pantallas: €90
 
 ---
 
-❓ Si tienes dudas o necesitas ayuda, escribe aquí y te responderé ASAP.
+**PRECIOS - STREAMING** 🎬
+(Mismo precio que TV)
 
-¡Gracias por confiar en nuestros servicios! 🙌
-""".format(STRIPE_LINK, PAYPAL_EMAIL)
-        
-        await update.message.reply_text(respuesta, parse_mode='Markdown')
+---
 
-def main():
-    """Inicia el bot"""
-    application = Application.builder().token(TELEGRAM_TOKEN).build()
-    
-    # Manejador de mensajes de texto
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    
-    # Inicia el bot
-    print("🤖 Bot iniciado. Escuchando mensajes...")
-    application.run_polling()
+**¿QUIERES AMBOS SERVICIOS?** 
+Contáctame en privado para un presupuesto personalizado.
 
-if __name__ == '__main__':
-    main()
+---
+
+**PAGA AHORA:**
+
+💳 **STRIPE** → 🔗 {}
+
+💰 **PAYPAL** 
+Envía a: {}
+⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto
+
+---
+
+❓ ¿Dudas? ¡Escribe aquí! Respondo al instante. 🚀
+"""
