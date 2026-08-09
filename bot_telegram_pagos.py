@@ -21,9 +21,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-🎯 **¡Perfecto! Aquí están tus opciones de pago:**
-
-respuesta = """
 🎯 **¡Bienvenido a Exclusives Soportes!**
 
 Ofrecemos dos servicios premium:
@@ -73,4 +70,20 @@ Envía a: {}
 ---
 
 ❓ ¿Dudas? ¡Escribe aquí! Respondo al instante. 🚀
-"""
+""".format(STRIPE_LINK, PAYPAL_EMAIL)
+        
+        await update.message.reply_text(respuesta, parse_mode='Markdown')
+
+def main():
+    """Inicia el bot"""
+    application = Application.builder().token(TELEGRAM_TOKEN).build()
+    
+    # Manejador de mensajes de texto
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    
+    # Inicia el bot
+    print("🤖 Bot iniciado. Escuchando mensajes...")
+    application.run_polling()
+
+if __name__ == '__main__':
+    main()
