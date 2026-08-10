@@ -21,7 +21,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-🎯 **¡Bienvenido a Exclusives Soportes!**
+🎯 **¡Bienvenido a KRIPTALTV!**
 
 Ofrecemos dos servicios premium:
 
