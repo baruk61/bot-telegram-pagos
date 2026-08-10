@@ -5,7 +5,7 @@ from telegram.ext import Application, MessageHandler, filters, ContextTypes
 # Configuración
 TELEGRAM_TOKEN = "8863388863:AAHe8uhjNLZUy42lLdUG3j3FKVZRuiFDJyE"
 STRIPE_LINK = "https://buy.stripe.com/dRm28q467g67cL1dsnaIM05"
-PAYPAL_EMAIL = "baruk61@protonmail.com"
+PAYPAL_LINK = "https://paypal.me/osset233"
 
 # Palabras clave que activan el bot
 PALABRAS_CLAVE = ["renovar", "cuanto cuesta", "cuánto cuesta", "precio", "pagar"]
@@ -21,7 +21,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-🎯 **¡Bienvenido a KRIPTALTV!**
+🎯 **¡Bienvenido a KRIPTAL TV!**
 
 Ofrecemos dos servicios premium:
 
@@ -64,13 +64,12 @@ Contáctame en privado para un presupuesto personalizado.
 💳 **STRIPE** → 🔗 {}
 
 💰 **PAYPAL** → 🔗 {}
-
-⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto si haces el pago x paypal
+⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto
 
 ---
 
 ❓ ¿Dudas? ¡Escribe aquí! Respondo al instante. 🚀
-""".format(STRIPE_LINK, PAYPAL_EMAIL)
+""".format(STRIPE_LINK, PAYPAL_LINK)
         
         await update.message.reply_text(respuesta, parse_mode='Markdown')
 
