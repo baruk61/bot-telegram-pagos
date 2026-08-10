@@ -7,11 +7,20 @@ TELEGRAM_TOKEN = "8863388863:AAHe8uhjNLZUy42lLdUG3j3FKVZRuiFDJyE"
 STRIPE_LINK = "https://buy.stripe.com/dRm28q467g67cL1dsnaIM05"
 PAYPAL_LINK = "https://paypal.me/osset233"
 
+# IDs de usuarios autorizados (solo responde a estos)
+USUARIOS_AUTORIZADOS = [998244547]  # Tu ID
+
 # Palabras clave que activan el bot
 PALABRAS_CLAVE = ["renovar", "cuanto cuesta", "cuánto cuesta", "precio", "pagar"]
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Maneja mensajes y responde si contienen palabras clave"""
+    
+    usuario_id = update.message.from_user.id
+    
+    # Verificar si el usuario está autorizado
+    if usuario_id not in USUARIOS_AUTORIZADOS:
+        return  # Ignora al usuario no autorizado
     
     mensaje = update.message.text.lower()
     
@@ -21,7 +30,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-🎯 **¡Bienvenido a KRIPTAL TV!**
+🎯 **¡Bienvenido a Exclusives Soportes!**
 
 Ofrecemos dos servicios premium:
 
@@ -64,7 +73,6 @@ Contáctame en privado para un presupuesto personalizado.
 💳 **STRIPE** → 🔗 {}
 
 💰 **PAYPAL** → 🔗 {}
-
 ⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto
 
 ---
