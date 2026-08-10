@@ -64,6 +64,7 @@ Contáctame en privado para un presupuesto personalizado.
 💳 **STRIPE** → 🔗 {}
 
 💰 **PAYPAL** → 🔗 {}
+
 ⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto
 
 ---
