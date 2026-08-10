@@ -7,24 +7,24 @@ TELEGRAM_TOKEN = "8863388863:AAHe8uhjNLZUy42lLdUG3j3FKVZRuiFDJyE"
 STRIPE_LINK = "https://buy.stripe.com/dRm28q467g67cL1dsnaIM05"
 PAYPAL_LINK = "https://paypal.me/osset233"
 
-# IDs de usuarios autorizados (solo responde a estos)
-USUARIOS_AUTORIZADOS = [998244547]  # Tu ID
-
-# Palabras clave que activan el bot
+# Palabras clave LEGÍTIMAS que activan el bot
 PALABRAS_CLAVE = ["renovar", "cuanto cuesta", "cuánto cuesta", "precio", "pagar"]
 
+# Palabras de SPAM/MALICIOSAS (bloquea estas)
+PALABRAS_BLOQUEADAS = ["void", "enigma", "telegram", "instagram", "vk", "pasaporte", "fotos", "documentos", "datos", "estafa", "crypto", "bitcoin", "casino", "apuestas"]
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Maneja mensajes y responde si contienen palabras clave"""
-    
-    usuario_id = update.message.from_user.id
-    
-    # Verificar si el usuario está autorizado
-    if usuario_id not in USUARIOS_AUTORIZADOS:
-        return  # Ignora al usuario no autorizado
+    """Maneja mensajes y responde si contienen palabras clave legítimas"""
     
     mensaje = update.message.text.lower()
     
-    # Verificar si el mensaje contiene palabras clave
+    # Bloquear mensajes que contienen palabras sospechosas
+    contiene_spam = any(palabra_spam in mensaje for palabra_spam in PALABRAS_BLOQUEADAS)
+    
+    if contiene_spam:
+        return  # Ignora el mensaje de spam silenciosamente
+    
+    # Verificar si el mensaje contiene palabras clave legítimas
     contiene_palabra_clave = any(palabra in mensaje for palabra in PALABRAS_CLAVE)
     
     if contiene_palabra_clave:
