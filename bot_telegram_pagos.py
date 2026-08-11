@@ -63,6 +63,7 @@ Plex, Emby, Jellyfin y más
 **STRIPE** → 🔗 {}
 
 **PAYPAL** → 🔗 {}
+
 ⚠️ Selecciona "Amigos y familiares" y NO escribas nada en concepto
 
 ---
