@@ -37,7 +37,28 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-💳 **OPCIONES DE PAGO**
+🎬 **SERVICIO STREAMING**
+Plex, Emby, Jellyfin y más
+
+---
+
+**PRECIOS - TV (por pantalla)**
+
+ **3 MESES**
+  • 1 pantalla: €30
+  • 2 pantallas: €45
+
+ **6 MESES**
+  • 1 pantalla: €45
+  • 2 pantallas: €55
+
+ **1 AÑO**
+  • 1 pantalla: €70
+  • 2 pantallas: €90
+
+---
+
+💳 **PAGA AHORA:**
 
 **STRIPE** → 🔗 {}
 
