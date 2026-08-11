@@ -37,53 +37,18 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if contiene_palabra_clave:
         # Mensaje con instrucciones de pago
         respuesta = """
-🎯 **¡Bienvenido a Exclusives Soportes!**
+💳 **OPCIONES DE PAGO**
 
-Ofrecemos dos servicios premium:
+**STRIPE** → 🔗 {}
 
-
-
-🎬 **SERVICIO STREAMING**
-Plex, Emby, Jellyfin y más
+**PAYPAL** → 🔗 {}
+⚠️ Selecciona "Amigos y familiares" y NO escribas nada en concepto
 
 ---
 
-**PRECIOS - TV (por pantalla)**
+ℹ️ Para otro tipo de información, contáctame en privado 📩
 
-3️⃣ **3 MESES**
-  • 1 pantalla: €30
-  • 2 pantallas: €45
-
-6️⃣ **6 MESES**
-  • 1 pantalla: €45
-  • 2 pantallas: €55
-
-1️⃣2️⃣ **1 AÑO**
-  • 1 pantalla: €70
-  • 2 pantallas: €90
-
----
-
-**PRECIOS - STREAMING** 🎬
-(Mismo precio que TV)
-
----
-
-**¿QUIERES AMBOS SERVICIOS?** 
-Contáctame en privado para un presupuesto personalizado.
-
----
-
-**PAGA AHORA:**
-
-💳 **STRIPE** → 🔗 {}
-
-💰 **PAYPAL** → 🔗 {}
-⚠️ **IMPORTANTE:** Selecciona "Amigos y familiares" y NO escribas nada en concepto
-
----
-
-❓ ¿Dudas? ¡Escribe aquí! Respondo al instante. 🚀
+❓ ¿Dudas sobre el pago? ¡Escribe aquí! 🚀
 """.format(STRIPE_LINK, PAYPAL_LINK)
         
         await update.message.reply_text(respuesta, parse_mode='Markdown')
